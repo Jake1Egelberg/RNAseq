@@ -11,6 +11,7 @@ file.path<-"D:\\RNAseq"
 parms<-read.delim(paste(file.path,"\\parms.txt",sep=""),sep=":")
 
 #Redefine parms for R
+paired.end.status<-as.logical(trimws(parms[which(parms$RNA_SEQ_PARAMETERS=="paired.end.status"),2]))
 ref.genome<-trimws(parms[which(parms$RNA_SEQ_PARAMETERS=="ref.genome"),2])
 use.existing.counts<-as.logical(trimws(parms[which(parms$RNA_SEQ_PARAMETERS=="use.existing.counts"),2]))
 interest.group<-trimws(parms[which(parms$RNA_SEQ_PARAMETERS=="interest.group"),2])
@@ -51,9 +52,11 @@ bam.files <- list.files(path = paste(file.path,"\\1fastqfiles\\",sep=""),
                         full.names = TRUE)
 
 if(use.existing.counts==FALSE){
+  
   #Count features (count RNA reads in .bam files)
   fc <- featureCounts(files=bam.files, 
-                      annot.inbuilt=ref.genome)
+                      annot.inbuilt=ref.genome,
+                      isPairedEnd=paired.end.status)
     
   countdata<-as.data.frame(fc$counts)
   names(countdata)<-str_sub(names(countdata),1,10)
