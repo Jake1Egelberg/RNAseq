@@ -31,6 +31,7 @@ library(limma)
 library(Glimma)
 library(gplots)
 library(org.Mm.eg.db)
+library(org.Hs.eg.db)
 library(RColorBrewer)
 set.seed(42)
 
@@ -222,9 +223,17 @@ dev.off()
 #Annotate output
 output$GeneID<-rownames(output)
 output<-output[,c(6,1,2,3,4,5)]
-ann <- select(org.Mm.eg.db,
-              keys=output$GeneID,
-              columns=c("ENTREZID","SYMBOL","GENENAME"))
+
+if(ref.genome=="mm10"){
+  ann <- select(org.Mm.eg.db,
+                keys=output$GeneID,
+                columns=c("ENTREZID","SYMBOL","GENENAME"))
+} else if(ref.genome=="hg19"){
+  ann <- select(org.Hs.eg.db,
+                keys=output$GeneID,
+                columns=c("ENTREZID","SYMBOL","GENENAME"))
+}
+
 output.ann <- cbind(output, ann[,2:3])
 
 #Save output
