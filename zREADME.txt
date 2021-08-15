@@ -1,6 +1,7 @@
 WORKFLOW
 
-*Download this folder onto your hardrive (filepath = "D:")
+*Download the RNAseq folder onto your hardrive (filepath = "D:")
+**RENAME FOLDER TO "RNAseq", REMOVE VERSION IDENTIFIERS
 
 ------------------------------------------------------------
 
@@ -14,7 +15,7 @@ GENERAL STEPS OF RNA-SEQ:
 1) Identify sequences to analyze from NCBI SRA (Sequence Read Archive)
 	https://www.ncbi.nlm.nih.gov/sra/?term=hg19
 *Filter by  Access=Public, Source=RNA, Library Layout=<Your choice>, File Type= .fastq OR .bam
-*Order results by taxon to according to which organism you are investigating
+**Order results by taxon to according to which organism you are investigating
 
 2) Download FASTQ/BAM from European Nucleotide Archive (downloading BAM speeds up analysis)
 	https://www.ebi.ac.uk/ena/browser/view
