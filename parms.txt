@@ -1,0 +1,15 @@
+RNA_SEQ_PARAMETERS: STATUS
+
+index.file: hg19
+
+paired.end.status: TRUE
+
+ref.genome: hg19
+
+use.existing.counts: FALSE
+
+interest.group: mutant
+
+thresh.value: 6
+
+sample.value: 2

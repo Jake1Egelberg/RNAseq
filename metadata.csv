@@ -1,0 +1,5 @@
+﻿SourceDOI,AccessionNum,Set 1 File Name,Set 2 File Name,SampleName,CellType,Desc,mutant
+10.1101/739391,SRR14570253,1F.fastq.gz,1R.fastq.gz,wildtypeRescue1,hiPSC,normal CNTNAP2,0
+10.1101/739392,SRR14570254,2F.fastq.gz,2R.fastq.gz,wildtypeRescue2,hiPSC,normal CNTNAP2,0
+10.1101/739393,SRR14570250,3F.fastq.gz,3R.fastq.gz,mutant1,hiPSC,c.3709DelG mutation in CNTNAP2,1
+10.1101/739394,SRR14570251,4F.fastq.gz,4R.fastq.gz,mutant2,hiPSC,c.3709DelG mutation in CNTNAP2,1
