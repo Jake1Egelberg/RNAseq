@@ -1,7 +1,16 @@
-WORKFLOW
+***INSTALLATION INSTRUCTIONS***
 
-*Download the RNAseq folder onto your hardrive (filepath = "D:")
-**RENAME FOLDER TO "RNAseq", REMOVE VERSION IDENTIFIERS
+1) Install R (ideally version 4.0.0) and R Studio
+
+2) Install the BiocManager, stringr, and RColorBrewer packages
+
+3) Use BiocManager to install the Rsubread,edgeR, limma, Glimma, gplots, org.Mm.eg.db, org.Hs.eg.db, fgsea, and reactome.db. See http://bioconductor.org/packages
+
+4) Download this RNAseq folder onto your hardrive (filepath = "D:") and rename folder to "RNAseq" (remove version identifiers)
+
+5) Configure filepaths in R. Open all three .R scripts in the "scripts" subfolder in R Studio and ensure that the filepath at the top of each script matches where this "RNAseq" folder is saved.
+
+6) Configure the .bat files in this "RNAseq" folder. Ensure that .bat opens the version of R installed on your computer and correctly references where your R scripts are saved.
 
 ------------------------------------------------------------
 
@@ -15,7 +24,7 @@ GENERAL STEPS OF RNA-SEQ:
 1) Identify sequences to analyze from NCBI SRA (Sequence Read Archive)
 	https://www.ncbi.nlm.nih.gov/sra/?term=hg19
 *Filter by  Access=Public, Source=RNA, Library Layout=<Your choice>, File Type= .fastq OR .bam
-**Order results by taxon to according to which organism you are investigating
+**Order results by taxon to according to which organism you are investigating (human/hg19 or mouse/mm10)
 
 2) Download FASTQ/BAM from European Nucleotide Archive (downloading BAM speeds up analysis)
 	https://www.ebi.ac.uk/ena/browser/view
@@ -40,18 +49,16 @@ GENERAL STEPS OF RNA-SEQ:
 *THIS CAN TAKE A LONG TIME
 
 8) Monitor program progress as follows:
-	1) See "progress" folder for current processes
-	2) Monitor the buildindex and 1fastqfiles folders to see addition of new files
-	3) Ensure that analysis is complete in "progress" folder before the command window closes automatically
+	a) See "progress" folder for current processes
+	b) Monitor the buildindex and 1fastqfiles folders to see addition of new files
+	c) Check task manager to ensure that resources are being directed towards RNA-seq program (shows up as Windows Command Processor)
+	d) Ensure that analysis is complete in "progress" folder before the command window closes automatically
+	e) If analysis stops on 3DE_ANALYSIS, re-configure threshold and sample values to include more genes
 
-REQUIRED SOFTWARE: R, R Studio
-REQUIRED BASE PACKAGES: BiocManager, stringr, RColorBrewer
-REQUIRED BIOCMANAGER PACKAGES: Rsubread,edgeR, limma, Glimma, gplots, org.Mm.eg.db, fgsea, reactome.db
-*BiocManager packages must be installed via BiocManager in R. See http://bioconductor.org/packages
 
 ------------------------------------------------------------
 
-EXAMPLE FASTQ SEQUENCES to START:
+EXAMPLE FASTQ SEQUENCE ACCESSION #S TO START:
 SRR1552444
 SRR1552445
 SRR1552446
@@ -65,13 +72,11 @@ SRR1552453
 SRR1552454
 SRR1552455
 
-SRAs from Fu, N.Y., Rios, A., Pal, B., Soetanto, R., Lun, A.T.L., Liu, K., Beck, T., Best, S., Vaillant, F., Bouillet, P., Strasser, A., Preiss, T., Smyth, G.K., Lindeman, G., , Visvader, J.: EGF-mediated induction of Mcl-1 at the switch to lactation is essential for alveolar cell survival. Nature Cell Biology 17(4), 365–375 (2015)
+Fu, N.Y., Rios, A., Pal, B., Soetanto, R., Lun, A.T.L., Liu, K., Beck, T., Best, S., Vaillant, F., Bouillet, P., Strasser, A., Preiss, T., Smyth, G.K., Lindeman, G., , Visvader, J.: EGF-mediated induction of Mcl-1 at the switch to lactation is essential for alveolar cell survival. Nature Cell Biology 17(4), 365–375 (2015)
 
 ------------------------------------------------------------
 
-ANNOTATED PARMS
-
-#-----------------------ALIGNMENT PARMS--------------------
+ANNOTATED PARMS FILE
 
 #Specify reference genome file name (remove ending, .fa.gz implied), file to be indexed
 index.file<-"chr1_mm10"
@@ -80,13 +85,11 @@ index.file<-"chr1_mm10"
 paired.end.status<-FALSE
 
 #Specify reference genome of samples and index file
-  #Mouse (mm9, mm10) and human (hg19) genome assemblies
+  #Mouse (mm10) and human (hg19) genome assemblies
 ref.genome<-"mm10"
 
 #Specifies whether to use existing raw feature counts or not
 use.existing.counts: FALSE
-
-#-----------------------DE PARMS--------------------
 
 #Configure design matrix
   #Groups as column names (factor)
@@ -101,7 +104,10 @@ interest.group<-"typeluminal"
 thresh.value<-6 #CPM<X selected
 sample.value<-2 #Across at least X samples
 
+------------------------------------------------------------
 
+CITE THIS WORKFLOW:
+https://zenodo.org/badge/latestdoi/396408760
 
 
 
