@@ -10,6 +10,6 @@ use.existing.counts: FALSE
 
 interest.group: mutant
 
-thresh.value: 6
+thresh.value: 1
 
 sample.value: 2
