@@ -2,15 +2,13 @@
 
 1) Install R (ideally version 4.0.0) and R Studio
 
-2) Install the BiocManager, stringr, and RColorBrewer packages
+2) Install the BiocManager, stringr, gplots, and RColorBrewer packages. Use BiocManager to install the Rsubread, edgeR, limma, Glimma,  org.Mm.eg.db, org.Hs.eg.db, fgsea, and reactome.db; see http://bioconductor.org/packages. For package installation, can run the 0PACKAGE_INSTALLATION.bat file in the "scripts" subfolder.
 
-3) Use BiocManager to install the Rsubread,edgeR, limma, Glimma, gplots, org.Mm.eg.db, org.Hs.eg.db, fgsea, and reactome.db. See http://bioconductor.org/packages
+3) Download this RNAseq folder onto your hardrive (filepath = "D:") and rename folder to "RNAseq" (remove version identifiers)
 
-4) Download this RNAseq folder onto your hardrive (filepath = "D:") and rename folder to "RNAseq" (remove version identifiers)
+4) Configure filepaths in R. Open all three .R scripts in the "scripts" subfolder in R Studio and ensure that the filepath at the top of each script matches where this "RNAseq" folder is saved.
 
-5) Configure filepaths in R. Open all three .R scripts in the "scripts" subfolder in R Studio and ensure that the filepath at the top of each script matches where this "RNAseq" folder is saved.
-
-6) Configure the .bat files in this "RNAseq" folder. Ensure that .bat opens the version of R installed on your computer and correctly references where your R scripts are saved.
+5) Configure the .bat files in this "RNAseq" folder. Ensure that .bat opens the version of R installed on your computer and correctly references where your R scripts are saved.
 
 ------------------------------------------------------------
 
