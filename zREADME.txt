@@ -13,7 +13,7 @@
 ------------------------------------------------------------
 
 GENERAL STEPS OF RNA-SEQ:
-1) Build index of reference genome
+1) Build index of reference genome (human/hg19/hg38 or mouse/mm9/mm10)
 2) Align RNA reads to index
 3) Measure differential expression between high quality reads
 
@@ -22,7 +22,7 @@ GENERAL STEPS OF RNA-SEQ:
 1) Identify sequences to analyze from NCBI SRA (Sequence Read Archive)
 	https://www.ncbi.nlm.nih.gov/sra/?term=hg19
 *Filter by  Access=Public, Source=RNA, Library Layout=<Your choice>, File Type= .fastq OR .bam
-**Order results by taxon to according to which organism you are investigating (human/hg19 or mouse/mm10)
+**Order results by taxon to according to which organism you are investigating (human/hg19/hg38 or mouse/mm9/mm10)
 
 2) Download FASTQ/BAM from European Nucleotide Archive (downloading BAM speeds up analysis)
 	https://www.ebi.ac.uk/ena/browser/view
