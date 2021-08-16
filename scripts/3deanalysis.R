@@ -224,11 +224,11 @@ dev.off()
 output$GeneID<-rownames(output)
 output<-output[,c(6,1,2,3,4,5)]
 
-if(ref.genome=="mm10"){
+if(ref.genome=="mm10"||ref.genome=="mm9"){
   ann <- select(org.Mm.eg.db,
                 keys=output$GeneID,
                 columns=c("ENTREZID","SYMBOL","GENENAME"))
-} else if(ref.genome=="hg19"){
+} else if(ref.genome=="hg19"||ref.genome=="hg38"){
   ann <- select(org.Hs.eg.db,
                 keys=output$GeneID,
                 columns=c("ENTREZID","SYMBOL","GENENAME"))
